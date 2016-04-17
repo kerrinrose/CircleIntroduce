@@ -80,7 +80,7 @@
     </section>
     
     
-    <section class="row info-1 profile-1">
+    <section class="row info-049 profile-1">
     <div class="grid-6">
          <img src="prof1.jpg" class="info-1">
         
@@ -191,8 +191,8 @@
     <script>
         
        var PUBNUB_circle = PUBNUB.init({
-          publish_key: 'pub-c-14a69e9f-ab2f-4db3-886f-c20a605e0104',
-        subscribe_key: 'sub-c-c85f22a8-0340-11e6-8679-02ee2ddab7fe'
+          publish_key: '**',
+        subscribe_key: '**'
     });
         
         PUBNUB_circle.subscribe({
@@ -221,7 +221,7 @@
            function loadProfile() {   $(".info-"+m).hide().each(function(i) {
   $(this).delay(i*700).fadeIn(500);
 });}
-            setTimeout(loadProfile, 7000);
+            setTimeout(loadProfile, 7500);
             setTimeout(loading, 1000);
         };
             

@@ -18,15 +18,11 @@
 
  
     var PUBNUB_circle = PUBNUB.init({
-        publish_key: ***,
-        subscribe_key: ***
+        publish_key: '**',
+        subscribe_key: '**'
     });
     
-       PUBNUB_circle.subscribe({
-    channel: 'circle',
-    message: function(m){console.log(m)}
-});
-    
+   
      
        
     
@@ -36,7 +32,15 @@
             message: data
           }); 
         
+    
     }
+    
+    
+        PUBNUB_circle.subscribe({
+    channel: 'circle',
+    message: function(m){console.log(m)}
+});
+    
     
 
              
@@ -52,6 +56,7 @@
     
       if ($_GET["profileID"]) {
     $profileID = $_GET["profileID"];
+          echo $profileID;
  
     ?> <script>sendData("<?php echo $profileID ?>");</script><?php
     

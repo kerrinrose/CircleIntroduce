@@ -208,22 +208,22 @@
             
             console.log(m);
             
-            if(m != "0") {
-            
-           // alert(event);
-            
-           $(".text").fadeOut(500);
-            
-         function loading() {   $(".load").fadeIn(1000).fadeOut(1000).fadeIn(1000).fadeOut(1000).fadeIn(1000).fadeOut(1000); };
-            
-            
-            
-           function loadProfile() {   $(".info-"+m).hide().each(function(i) {
-  $(this).delay(i*700).fadeIn(500);
-});}
-            setTimeout(loadProfile, 7500);
-            setTimeout(loading, 1000);
-        };
+//            if(m != "0") {
+//            
+//           // alert(event);
+//            
+//           $(".text").fadeOut(500);
+//            
+//         function loading() {   $(".load").fadeIn(1000).fadeOut(1000).fadeIn(1000).fadeOut(1000).fadeIn(1000).fadeOut(1000); };
+//            
+//            
+//            
+//           function loadProfile() {   $(".info-"+m).hide().each(function(i) {
+//  $(this).delay(i*700).fadeIn(500);
+//});}
+//            setTimeout(loadProfile, 7500);
+//            setTimeout(loading, 1000);
+//        };
             
         }
         

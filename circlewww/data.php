@@ -1,71 +1,32 @@
+<?php
+require_once('composer/lib/autoloader.php');
 
 
+use Pubnub\Pubnub;
 
-<html>
-<head><title></title></head>
-    
-    <body>
-    
-        
-    
 
-    
-    <script src="https://cdn.pubnub.com/pubnub-dev.js"></script>
-
-<!-- Instantiate PubNub -->
-<script type="text/javascript">
-    
+	
+$pubnub = new Pubnub([
+    'publish_key' => '**',
+    'subscribe_key' => '**'
+]);
 
  
-    var PUBNUB_circle = PUBNUB.init({
-        publish_key: '**',
-        subscribe_key: '**'
-    });
-    
-   
-     
-       
-    
-    function sendData(data) {
-         PUBNUB_circle.publish({
-            channel: 'circle',
-            message: data
-          }); 
-        
-    
-    }
-    
-    
-        PUBNUB_circle.subscribe({
-    channel: 'circle',
-    message: function(m){console.log(m)}
-});
-    
-    
-
-             
-           
-             
-         
-
-
-</script>
-    
-        
-        <?php
-    
-      if ($_GET["profileID"]) {
-    $profileID = $_GET["profileID"];
-          echo $profileID;
+//Subscribe to a channel, this is not async.
+$pubnub->subscribe('circle', function ($envelope) {
+             print_r($envelope['message']);
+       });
  
-    ?> <script>sendData("<?php echo $profileID ?>");</script><?php
+// Use the publish command separately from the Subscribe code shown above. 
+// Subscribe is not async and will block the execution until complete.
+if ($_GET["profileID"]) {
+    $productID = $_GET["profileID"];
+ 
+
+$publish_result = $pubnub->publish('circle',$productID);
+print_r($publish_result);
+
     
-} ?>
-        
-    </body>
-
-
-</html>
-
-
-
+    
+}
+?>

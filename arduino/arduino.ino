@@ -190,7 +190,7 @@ void loop(void)
        profileID = tag;
        
     // Send request
-    String request = "GET /circlewww/sendData.php?profileID=44" + profileID + " HTTP/1.0";
+    String request = "GET /circlewww/firebase/firebase-php/firebase.php?profileID=" + profileID + " HTTP/1.0";
     send_request(request);
     Serial.println("");
     Serial.print("request: ");

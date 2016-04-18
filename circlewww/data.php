@@ -7,8 +7,8 @@ use Pubnub\Pubnub;
 
 	
 $pubnub = new Pubnub([
-    'publish_key' => '**',
-    'subscribe_key' => '**'
+    'publish_key' => 'pub-c-14a69e9f-ab2f-4db3-886f-c20a605e0104',
+    'subscribe_key' => 'sub-c-c85f22a8-0340-11e6-8679-02ee2ddab7fe'
 ]);
 
  
@@ -19,8 +19,8 @@ $pubnub->subscribe('circle', function ($envelope) {
  
 // Use the publish command separately from the Subscribe code shown above. 
 // Subscribe is not async and will block the execution until complete.
-if ($_GET["profileID"]) {
-    $productID = $_GET["profileID"];
+$name1 = $argv[1];    
+  echo $name1;
  
 
 $publish_result = $pubnub->publish('circle',$productID);
@@ -28,5 +28,5 @@ print_r($publish_result);
 
     
     
-}
+
 ?>

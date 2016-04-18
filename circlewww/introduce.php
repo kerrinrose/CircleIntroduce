@@ -186,44 +186,42 @@
     
 
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <script src="https://cdn.firebase.com/js/client/2.4.2/firebase.js"></script>
     <!-- Include the PubNub Library -->
-<script src="https://cdn.pubnub.com/pubnub-dev.js"></script>
-    <script>
+<script>
+    var ID;
+    var myFirebaseRef = new Firebase("https://crackling-heat-6931.firebaseio.com/firebase/example/name");
+    
+    myFirebaseRef.on("child_changed", function(snapshot) {
+   handleMessage(snapshot.val());
         
-       var PUBNUB_circle = PUBNUB.init({
-          publish_key: '**',
-        subscribe_key: '**'
-    });
-        
-        PUBNUB_circle.subscribe({
-    channel: 'circle',
-    message: handleMessage
+     
 });
         
         $(".info-1, .info-2, .info-3, .info-4, .info-5, .load").hide();
         
         function handleMessage(m) {
             
+            console.log("handling message: " + m );
+            
+           
+            
+            if(m != 0) {
+            
+           // alert(event);
+            
+           $(".text").fadeOut(500);
+            
+         function loading() {   $(".load").fadeIn(1000).fadeOut(1000).fadeIn(1000).fadeOut(1000).fadeIn(1000).fadeOut(1000); };
             
             
-            console.log(m);
             
-//            if(m != "0") {
-//            
-//           // alert(event);
-//            
-//           $(".text").fadeOut(500);
-//            
-//         function loading() {   $(".load").fadeIn(1000).fadeOut(1000).fadeIn(1000).fadeOut(1000).fadeIn(1000).fadeOut(1000); };
-//            
-//            
-//            
-//           function loadProfile() {   $(".info-"+m).hide().each(function(i) {
-//  $(this).delay(i*700).fadeIn(500);
-//});}
-//            setTimeout(loadProfile, 7500);
-//            setTimeout(loading, 1000);
-//        };
+           function loadProfile() {   $(".info-"+m).hide().each(function(i) {
+  $(this).delay(i*700).fadeIn(500);
+});}
+            setTimeout(loadProfile, 7500);
+            setTimeout(loading, 1000);
+        };
             
         }
         
